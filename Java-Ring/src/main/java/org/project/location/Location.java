@@ -1,32 +1,33 @@
+
 package org.project.location;
 
 import org.project.entity.enemies.Enemy;
 
-import java.util.ArrayList;
-
 public class Location {
-    private String name;
+    private final String name;
+    private final boolean isSafe;
+    private final Enemy enemy;
 
-    private ArrayList<Enemy> enemies;
-
-    public Location(ArrayList<Location> locations, ArrayList<Enemy> enemies) {
-        this.locations = locations;
-        this.enemies = enemies;
+    public Location(String name, boolean isSafe, Enemy enemy) {
+        this.name = name;
+        this.isSafe = isSafe;
+        this.enemy = enemy;
     }
-
-    /*
-    TODO: (BONUS) RESET EACH LOCATION AFTER PLAYER LEAVES
-    */
 
     public String getName() {
         return name;
     }
 
-    public ArrayList<Location> getLocations() {
-        return locations;
+    public boolean isSafe() {
+        return isSafe;
     }
 
-    public ArrayList<Enemy> getEnemies() {
-        return enemies;
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
+    @Override
+    public String toString() {
+        return "Location: " + name + (isSafe ? " (Safe)" : " (Dangerous)");
     }
 }
